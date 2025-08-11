@@ -73,3 +73,29 @@ for _, profile := range profiles {
 }
 wg.Wait()
 ```
+
+### Usage
+
+To run the script and see the performance difference for yourself, simply execute the following command:
+
+```bash
+go run main.go
+```
+
+The output will first show the results from the synchronous run, followed by its total time. Then, it will display the results of the concurrent run (in a non-deterministic order), followed by its total time.
+
+### Example Output
+
+```bash
+// Synchronous Output (sequential)
+[profile-1/us-east-1] Running instances: 0
+[profile-1/eu-west-1] Running instances: 3
+...
+Done in 15.995265334s
+
+// Concurrent Output (parallel)
+[profile-2/eu-west-2] Running instances: 0
+[profile-5/us-east-1] Running instances: 0
+...
+Done in 1.006744458s
+```
